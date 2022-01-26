@@ -6,41 +6,9 @@ using System.Threading.Tasks;
 
 namespace JtsAutoShopWeb.Models
 {
-    public class TechnicianModel : PersonModel, ITicketActions
+    public class TechnicianModel : PersonModel
     {
-        Queue<TicketModel> TicketsNeedToBeWorked { get; set; }
-        List<TicketModel> AllTickets { get; set; }
+        public List<TicketModel> AllTickets { get; set; }
         public string EmpId { get; }
-        IAuthorizeTicketActions ITicketActions.Authorize { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public TicketModel Create()
-        {
-            throw new NotImplementedException();
-        }
-
-        public TicketModel Delete()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Edit()
-        {
-            throw new NotImplementedException();
-        }
-
-        TicketModel ITicketActions.Create()
-        {
-            throw new NotImplementedException();
-        }
-
-        TicketModel ITicketActions.Delete()
-        {
-            throw new NotImplementedException();
-        }
-
-        void ITicketActions.Edit()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

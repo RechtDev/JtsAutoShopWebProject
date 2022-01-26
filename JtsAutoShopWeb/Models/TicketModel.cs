@@ -12,7 +12,7 @@ namespace JtsAutoShopWeb.Models
         public string ProblemDescription { get; set; }
         public string Car { get; set; }
         public TechnicianModel AssignedTo { get; set; }
-        //public Status TicketStatus { get; set; }
+        public StatusModel.TicketState TicketStatus { get; set; }
         public string TicketId { get; internal set; }
     }
 }

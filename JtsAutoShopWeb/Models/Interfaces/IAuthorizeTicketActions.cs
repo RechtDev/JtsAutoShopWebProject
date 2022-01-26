@@ -7,6 +7,6 @@ namespace JtsAutoShopWeb.Models.Interfaces
 {
     public interface IAuthorizeTicketActions
     {
-        bool IsAuthorzied();
+        bool IsAuthorzied(TicketModel ticket,PersonModel person);
     }
 }
