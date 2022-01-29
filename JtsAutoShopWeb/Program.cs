@@ -31,7 +31,7 @@ namespace JtsAutoShopWeb
             //    .AssignTechnicain()
             //    .Build();
             //var ticketCreation = new TicketingCRUDRule("create");
-           
+
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
