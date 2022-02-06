@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 namespace JtsAutoShopWeb.Models
 {
     public abstract class PersonModel
+<<<<<<< Updated upstream
     { 
+=======
+    {
+        [Required]
+>>>>>>> Stashed changes
         private string _lastName;
 
         public string LastName

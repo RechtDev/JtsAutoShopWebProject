@@ -9,10 +9,18 @@ namespace JtsAutoShopWeb.Models
     {
         public enum TicketState
         {
+<<<<<<< Updated upstream
             Menu,
             Options,
             Exit,
             Play
+=======
+            Active,
+            Closed,
+            InProgress
+>>>>>>> Stashed changes
         }
+
+
     }
 }

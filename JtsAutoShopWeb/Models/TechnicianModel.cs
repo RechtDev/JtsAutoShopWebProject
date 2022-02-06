@@ -8,6 +8,7 @@ namespace JtsAutoShopWeb.Models
 {
     public class TechnicianModel : PersonModel
     {
+        //inherit from ticket mod and pulls up all the tickets
         public List<TicketModel> AllTickets { get; set; }
         public string EmpId { get; }
     }

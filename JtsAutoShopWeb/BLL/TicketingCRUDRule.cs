@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 namespace JtsAutoShopWeb.BLL
 {
     public class TicketingCRUDRule : ITicketActions
-    {
+    {//Business Logic
+        //separate class to create, delete, edit proposal
         private PersonModel Person = null;
         private TicketModel Ticket = null;
 
         public IAuthorizeTicketActions Authorizer { get; set; } = null;
 
+        //optional parameter
         public TicketingCRUDRule(string operation, PersonModel person = null, TicketModel ticket = null)
         {
             if (operation == "delete" || operation == "edit")
@@ -38,6 +40,7 @@ namespace JtsAutoShopWeb.BLL
             }
             else
             {
+                //throw new Exception("Ticket invalid");
                 return null;
             }
         }
@@ -46,6 +49,7 @@ namespace JtsAutoShopWeb.BLL
         {
             if (Authorizer.IsAuthorzied(Ticket, Person))
             {
+                //casting customer model and list of people
                 var customer = (CustomerModel)Person;
                 //TODO add status for tickets and List that holds active tickets and inactive tickets
 

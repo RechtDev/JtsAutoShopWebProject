@@ -18,7 +18,17 @@ namespace JtsAutoShopWeb
         {
             CreateHostBuilder(args).Build().Run();
             //not actuall code example on how i want it to work with the controllers
+<<<<<<< Updated upstream
             
+=======
+            //peace wise builder nested in interface
+            //var person1 = new CustomerModelBuilder()
+            //    .AddName("John", "Doe")
+            //    .AddEmail("Test@gmail.com")
+            //    .AddPhoneNumber("2901388732")
+            //    .Build();
+
+>>>>>>> Stashed changes
             //var ticket = new TicketModelBuilder()
             //    .AddCreator(person1)
             //    .AddDropOffTime(new DateTime(2022, 1, 10))

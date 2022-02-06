@@ -36,6 +36,7 @@ namespace JtsAutoShopWeb.Models.ModelBuilders
         }
         public TicketModel Build()
         {
+            //not really random can find on internet system clock time
             Random randIDNum = new Random();
             Ticket.TicketId = randIDNum.Next(2000, 9012).ToString();
             return Ticket;

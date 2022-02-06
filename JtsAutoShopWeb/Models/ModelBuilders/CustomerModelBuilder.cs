@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 
 namespace JtsAutoShopWeb.Models.ModelBuilders
 {
+    //Fluent Builder and Fuction to return itself with this
+    //Build customer models(models) 
     public class CustomerModelBuilder
     {
         private CustomerModel Customer;
