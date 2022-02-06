@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace JtsAutoShopWeb.Models
 {
     public abstract class PersonModel
-    {
+    { 
         private string _lastName;
 
         public string LastName

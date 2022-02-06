@@ -1,4 +1,5 @@
 using JtsAutoShopWeb.BLL;
+using JtsAutoShopWeb.Models;
 using JtsAutoShopWeb.Models.ModelBuilders;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -17,12 +18,7 @@ namespace JtsAutoShopWeb
         {
             CreateHostBuilder(args).Build().Run();
             //not actuall code example on how i want it to work with the controllers
-            //var person1 = new CustomerModelBuilder()
-            //    .AddName("John", "Doe")
-            //    .AddEmail("Test@gmail.com")
-            //    .AddPhoneNumber("2901388732")
-            //    .Build();
-
+            
             //var ticket = new TicketModelBuilder()
             //    .AddCreator(person1)
             //    .AddDropOffTime(new DateTime(2022, 1, 10))

@@ -14,5 +14,7 @@ namespace JtsAutoShopWeb.Models
         public TechnicianModel AssignedTo { get; set; }
         public StatusModel.TicketState TicketStatus { get; set; }
         public string TicketId { get; internal set; }
+
+
     }
 }

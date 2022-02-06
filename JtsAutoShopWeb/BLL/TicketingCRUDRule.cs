@@ -34,7 +34,6 @@ namespace JtsAutoShopWeb.BLL
                 customer.Tickets.Add(ticketToBeBuilt);
                 ticketToBeBuilt.TicketStatus = StatusModel.TicketState.Active;
                 //TODO add implentation for assigning ticket to avaialbe tech
-                
                 return ticketToBeBuilt;
             }
             else

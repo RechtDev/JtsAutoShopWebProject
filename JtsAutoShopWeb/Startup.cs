@@ -1,3 +1,4 @@
+using JtsAutoShopWeb.Models.Interfaces;
 using JtsAutoShopWeb.Models.ModelBuilders;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

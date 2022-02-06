@@ -9,8 +9,10 @@ namespace JtsAutoShopWeb.Models
     {
         public enum TicketState
         {
-            Active,
-            Closed,
+            Menu,
+            Options,
+            Exit,
+            Play
         }
     }
 }
