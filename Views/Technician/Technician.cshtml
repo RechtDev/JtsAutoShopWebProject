@@ -1,0 +1,202 @@
+﻿@page
+@model IEnumerable<JtsAutoShopWeb.Models.TicketModel>
+
+
+
+
+<link rel="stylesheet" href="~/css/Technician.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com/%22%3E
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet">
+<title>@ViewData["Title"] - JtsAutoShopWeb</title>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<div id="main">
+
+    <head>
+        <title> Technician Dashboard</title>
+    </head>
+
+
+    <!-- Use any element to open the sidenav -->
+
+    <span style="font-size: 20px" ; onclick="openNav()"><button>Side Menu Button</button></span>
+    <h1>
+        Technician's Dashboard'
+    </h1>
+
+
+
+    <form action="/action_page.php">
+        <label for="Depart">First Name: </label>
+        <input type="text" id="depart" name="depart"><br><br>
+        <label for="Destin">Last name: </label>
+        <input type="text" id="Destin" name="Destin"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+
+
+    @*<partial name="_VerifyDeleteModal">*@
+    <div class="products-container">
+        <h1>View Products</h1>
+        <div class="display-products">
+            <table class="products-table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AssignedTo)
+                            <a class="filter-btn" asp-action="ViewProducts" asp-route-filterby="prodname" asp-route-des="false">
+                                <i class="fa-solid fa-arrow-down-a-z"></i>
+                            </a>
+                            <a class="filter-btn" asp-action="ViewProducts" asp-route-filterby="prodname" asp-route-des="true">
+                                <i class="fa-solid fa-arrow-down-z-a"></i>
+                            </a>
+                            <input type="text" placeholder="Search" id="productsearchbar" />
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AssignedTo)
+                            <a class="filter-btn" asp-action="ViewProducts" asp-route-filterby="prodprice" asp-route-des="false">
+                                <i class="fa-solid fa-arrow-down-1-9"></i>
+                            </a>
+                            <a class="filter-btn" asp-action="ViewProducts" asp-route-filterby="prodprice" asp-route-des="true">
+                                <i class="fa-solid fa-arrow-down-9-1"></i>
+                            </a>
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AssignedTo)
+                            <a class="filter-btn" asp-action="ViewProducts" asp-route-filterby="prodtype" asp-route-des="false">
+                                <i class="fa-solid fa-arrow-down-a-z"></i>
+                            </a>
+                            <a class="filter-btn" asp-action="ViewProducts" asp-route-filterby="prodtype" asp-route-des="true">
+                                <i class="fa-solid fa-arrow-down-z-a"></i>
+                            </a>
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                @*<tbody id="ProductTable">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @item.AssignedTo
+                                </td>
+                                <td>
+                                    @item.TicketId.ToString()
+                                </td>
+                                <td>
+                                    @item.AssignedTo
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-primary prod-btn" asp-action="EditProduct" asp-route-prodId="@item.AssignedTo">Edit</a> |
+                                    <a class="btn btn-sm btn-primary prod-btn" onclick="viewDetailModal(@item.AssignedTo)">Details</a> |
+                                    <a class="btn btn-sm btn-warning" onclick="deleteModal(@item.AssignedTo)" id="toggleDeleteModalBtn">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>*@
+            </table>
+            <div>
+                <a class="btn btn-group-lg  btn-outline-primary" asp-action="AddNewProduct">Add Product</a>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div id="deleteModal">
+
+    </div>
+    <div id="detailsModal">
+
+    </div>
+</div>
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="btn" onclick="closeNav()"></a>
+
+
+    <a class="nav-link text-dark" asp-page="/Index">Home</a>
+    <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">View All Tickets</a>
+    <a class="nav-link text-dark" asp-page="/Index">View Services Required</a>
+    <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">View Serviced Tickets</a>
+    <a class="nav-link text-dark" asp-page="/Index">Transfers</a>
+    <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Cancellations</a>
+    <a asp-area="" asp-controller="Technician" asp-action="Technician">Back</a>
+
+</div>
+
+<script type="text/javascript">
+
+    function deleteModal(productId) {
+        $.ajax({
+            url: '@Url.Action("GetDeleteModal", "Product")',
+            data: { prodId: productId },
+            contentType: "application/html",
+            dataType: "html",
+            type: "Get",
+            success: function (data) {
+                if (data.toString().length < 1100) {
+                    $("#deleteModal").html(data);
+                    $("#deleteModalDialog").show();
+                }
+                else {
+                    location.reload();
+                }
+            },
+            error: function (err) {
+
+            }
+
+        });
+    }
+    function viewDetailModal(productId) {
+        $.ajax({
+            url: '@Url.Action("ViewDetails","Product")',
+            data: { prodId: productId },
+            contentType: "application/html",
+            dataType: "html",
+            type: "Get",
+            success: function (data) {
+                if (data.toString().length < 1100) {
+                    $("#detailsModal").html(data);
+                    $("#viewProductDetailsModal").show();
+                }
+                else {
+                    location.reload();
+                }
+            },
+            error: function (err) {
+
+            }
+
+        });
+    }
+
+</script>
+
+
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2022 - JtsAutoShopWeb - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        <a asp-area="" asp-page="/Privacy">About Us</a>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
+</script>
+
