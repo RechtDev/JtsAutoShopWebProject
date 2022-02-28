@@ -88,11 +88,11 @@
                                 <td>
                                     @item.AssignedTo
                                 </td>
-                                <td>
-                                    <a class="btn btn-sm btn-primary prod-btn" asp-action="EditProduct" asp-route-prodId="@item.AssignedTo">Edit</a> |
-                                    <a class="btn btn-sm btn-primary prod-btn" onclick="viewDetailModal(@item.AssignedTo)">Details</a> |
-                                    <a class="btn btn-sm btn-warning" onclick="deleteModal(@item.AssignedTo)" id="toggleDeleteModalBtn">Delete</a>
-                                </td>
+                                <td>*@
+                                    <a class="btn btn-sm btn-primary prod-btn" asp-action="EditProduct" asp-route-prodId=>Edit</a> |
+                                    <a class="btn btn-sm btn-primary prod-btn" onclick="viewDetailModal()">Details</a> |
+                                    <a class="btn btn-sm btn-warning" onclick="deleteModal()" id="toggleDeleteModalBtn">Delete</a>
+                                @*</td>
                             </tr>
                         }
                     </tbody>*@
@@ -101,7 +101,35 @@
                 <a class="btn btn-group-lg  btn-outline-primary" asp-action="AddNewProduct">Add Product</a>
             </div>
 
+        <p>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                I would like to include the tables here with a partial view.  A description and images along with more information.
+            </p>
         </div>
     </div>
 
