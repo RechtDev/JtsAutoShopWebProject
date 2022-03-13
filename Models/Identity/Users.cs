@@ -1,16 +1,15 @@
-﻿using JtsAutoShopWeb.Models.Interfaces;
+﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace JtsAutoShopWeb.Models
+namespace JtsAutoShopWeb.Models.Identity
 {
-    public class CustomerModel : PersonModel
+    public class Users : IdentityUser
     {
         [NotMapped]
-        public List<TicketModel> Tickets { get; set; }
-
+        public IList<string> RoleNames { get; set; }
     }
 }

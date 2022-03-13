@@ -1,0 +1,53 @@
+﻿@model JtsAutoShopWeb.Models.TicketModel
+
+@{
+    ViewData["Title"] = "AddNewProduct";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<script  type="text/javascript" src="~/js/AddProduct.js"> </script>
+<h1 class="Text">Add New Product</h1>
+<hr />
+<div class="new-prod-form-container">
+    <div class="">
+        <div>
+            <form method="post" class="prod-form">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Product.ProdName" class="control-label">Name</label>
+                    <input asp-for="Product.ProdName" class="form-control" />
+                    <p><span class="text-warning" asp-validation-for="Product.ProdName"></span></p>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product.ProdPrice" class="control-label">Product Price</label>
+                    <div class="dollar"><input asp-for="Product.ProdPrice" class="form-control" id="priceProdInput" /></div>
+                    <p><span class="text-warning" asp-validation-for="Product.ProdPrice"></span></p>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product.ProdType" class="control-label">Type</label>
+                    <input list="ProductTypes" asp-for="Product.ProdType" class="form-control" />
+                    <p><span class="text-warning" asp-validation-for="Product.ProdType"></span></p>
+                    <datalist id="ProductTypes"> 
+                        @foreach(var item in Model.ProductType)
+                           {
+                             <option>@item</option>     
+                           }
+                    </datalist>
+                </div>
+                 <div class="btn-prod-form">
+                  <button class="btn btn-default" type="submit">
+                    <i type="submit" class="bi bi-plus-circle icons"></i>
+                  </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ViewProducts"><i class="fa-solid fa-arrow-left-long icons"></i></a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

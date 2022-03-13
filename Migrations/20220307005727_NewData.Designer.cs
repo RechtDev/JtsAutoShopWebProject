@@ -4,14 +4,16 @@ using JtsAutoShopWeb.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JtsAutoShopWeb.Migrations
 {
     [DbContext(typeof(DatabaseContent))]
-    partial class DatabaseContentModelSnapshot : ModelSnapshot
+    [Migration("20220307005727_NewData")]
+    partial class NewData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -121,11 +123,6 @@ namespace JtsAutoShopWeb.Migrations
 
             modelBuilder.Entity("JtsAutoShopWeb.Models.TicketModel", b =>
                 {
-                    b.Property<int>("TicketId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
                     b.Property<int?>("AssignedToPersonId")
                         .HasColumnType("int");
 
@@ -141,10 +138,11 @@ namespace JtsAutoShopWeb.Migrations
                     b.Property<DateTime>("Reservation")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("TicketId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("TicketStatus")
                         .HasColumnType("int");
-
-                    b.HasKey("TicketId");
 
                     b.HasIndex("AssignedToPersonId");
 

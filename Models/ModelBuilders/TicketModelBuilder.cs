@@ -38,7 +38,7 @@ namespace JtsAutoShopWeb.Models.ModelBuilders
         {
             //not really random can find on internet system clock time
             Random randIDNum = new Random();
-            Ticket.TicketId = randIDNum.Next(2000, 9012).ToString();
+            Ticket.TicketId = randIDNum.Next(2000, 9012);
             return Ticket;
         }
     }

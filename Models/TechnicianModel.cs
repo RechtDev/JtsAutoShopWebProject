@@ -11,8 +11,8 @@ namespace JtsAutoShopWeb.Models
     {
         //inherit from ticket mod and pulls up all the tickets
       
-        [NotMapped]
-        public TicketModel AllTickets { get; set; }
+      
+        //public TicketModel AllTickets { get; set; }
         public string EmpId { get; }
     }
 }

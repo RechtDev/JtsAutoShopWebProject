@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace JtsAutoShopWeb.Models
 {
-   [Keyless]
+   
     public abstract class PersonModel
 
-    { 
+    {
 
-    
-
+        [Key]
+        public int PersonId { get; set; }
 
         private string _lastName;
 
